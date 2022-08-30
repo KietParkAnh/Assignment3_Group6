@@ -138,7 +138,7 @@ void main()
                 }
                 else if (y == 137)
                 {
-                    draw_redTile(x, y);
+                    draw_greenTile(x, y);
                 }
                 else if (y == 166)
                 {
@@ -150,7 +150,7 @@ void main()
                 }
                 else if (y == 224)
                 {
-                    draw_yellowTile(x, y);
+                    draw_greenTile(x, y);
                 }
                 else if (y == 253)
                 {
