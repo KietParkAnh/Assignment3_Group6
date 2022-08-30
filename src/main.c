@@ -57,6 +57,7 @@ void main()
         // framebf_init(pixelBallPhysicalWidth, pixelBallPhysicalHeight, pixelBallVirtualWidth, pixelBallVirtualHeight);
         for (int j = 0; j < 50; j++)
         {
+            y++;
             for (int i = 0; i < 50; i++)
             {
                 drawPixelARGB32(i + x, y, pixelball[j * 50 + i]);
@@ -157,6 +158,7 @@ void main()
                 }
             }
         }
+        draw_pixelBall(500,500);
     }
 
     void draw_video()
