@@ -42,7 +42,7 @@ void main()
 
     void draw_image()
     {
-        framebf_init(physicalWidth, physicalHeight, virtualWidth, virtualHeight);
+        // framebf_init(physicalWidth, physicalHeight, virtualWidth, virtualHeight);
         for (int j = 0; j < 177; j++)
         {
             for (int i = 0; i < 284; i++)
@@ -52,84 +52,109 @@ void main()
         }
     }
 
-    void draw_game(){
-        // framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
-        draw_backGround();
-        draw_pixelBall();
-        draw_blueTile();
-        draw_greenTile();
-        draw_yellowTile();
-        draw_redTile()
-    }
-
-    void draw_backGround()
+    void draw_pixelBall(int x, int y)
     {
-        framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
-        for (int j = 0; j < 177; j++)
-        {
-            for (int i = 0; i < 284; i++)
-            {
-                drawPixelARGB32(i, j, background[j * 284 + i]);
-            }
-        }
-    }
-
-    void draw_pixelBall()
-    {
-        framebf_init(pixelBallPhysicalWidth, pixelBallPhysicalHeight, pixelBallVirtualWidth, pixelBallVirtualHeight);
+        // framebf_init(pixelBallPhysicalWidth, pixelBallPhysicalHeight, pixelBallVirtualWidth, pixelBallVirtualHeight);
         for (int j = 0; j < 50; j++)
         {
             for (int i = 0; i < 50; i++)
             {
-                drawPixelARGB32(i, j, pixelball[j * 50 + i]);
+                drawPixelARGB32(i + x, y, pixelball[j * 50 + i]);
             }
         }
     }
 
-    void draw_greenTile()
+    void draw_greenTile(int x, int y)
     {
-        framebf_init(greenTilePhysicalWidth, greenTilePhysicalHeight, greenTileVirtualWidth, greenTileVirtualHeight);
+        // framebf_init(greenTilePhysicalWidth, greenTilePhysicalHeight, greenTileVirtualWidth, greenTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
+            y++;
             for (int i = 0; i < 123; i++)
             {
-                drawPixelARGB32(i, j, greenTile[j * 123 + i]);
+                drawPixelARGB32(i + x, y, greenTile[j * 123 + i]);
             }
         }
     }
 
-    void draw_blueTile()
+    void draw_blueTile(int x, int y)
     {
-        framebf_init(blueTilePhysicalWidth, blueTilePhysicalHeight, blueTileVirtualWidth, blueTileVirtualHeight);
+        // framebf_init(blueTilePhysicalWidth, blueTilePhysicalHeight, blueTileVirtualWidth, blueTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
+            y++;
             for (int i = 0; i < 123; i++)
             {
-                drawPixelARGB32(i, j, bluetile[j * 123 + i]);
+                drawPixelARGB32(i + x, y, bluetile[j * 123 + i]);
             }
         }
     }
 
-    void draw_yellowTile()
+    void draw_yellowTile(int x, int y)
     {
-        framebf_init(yellowTilePhysicalWidth, yellowTilePhysicalHeight, yellowTitleVirtualWidth, yellowTileVirtualHeight);
+        // framebf_init(yellowTilePhysicalWidth, yellowTilePhysicalHeight, yellowTitleVirtualWidth, yellowTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
+            y++;
             for (int i = 0; i < 123; i++)
             {
-                drawPixelARGB32(i, j, yellowtile[j * 123 + i]);
+                drawPixelARGB32(i + x, y, yellowtile[j * 123 + i]);
             }
         }
     }
 
-    void draw_redTile()
+    void draw_redTile(int x, int y)
     {
-        framebf_init(redTilePhysicalWidth, redTilePhysicalHeight, redTileVirtualWidth, redTileVirtualHeight);
+        // framebf_init(redTilePhysicalWidth, redTilePhysicalHeight, redTileVirtualWidth, redTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
+            y++;
             for (int i = 0; i < 123; i++)
             {
-                drawPixelARGB32(i, j, redtile[j * 123 + i]);
+                drawPixelARGB32(i + x, y, redtile[j * 123 + i]);
+            }
+        }
+    }
+
+    void draw_game()
+    {
+        // framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
+        for (int x = 50; x < 470; x += 173)
+        {
+            for (int y = 50; y < 254; y += 29)
+            {
+                if (y == 50)
+                {
+                    draw_yellowTile(x, y);
+                }
+                else if (y == 79)
+                {
+                    draw_redTile(x, y);
+                }
+                else if (y == 108)
+                {
+                    draw_blueTile(x, y);
+                }
+                else if (y == 137)
+                {
+                    draw_redTile(x, y);
+                }
+                else if (y == 166)
+                {
+                    draw_yellowTile(x, y);
+                }
+                else if (y == 195)
+                {
+                    draw_blueTile(x, y);
+                }
+                else if (y == 224)
+                {
+                    draw_yellowTile(x, y);
+                }
+                else if (y == 253)
+                {
+                    draw_redTile(x, y);
+                }
             }
         }
     }
@@ -137,7 +162,7 @@ void main()
     void draw_video()
     {
         int countFrame = 0;
-        framebf_init(phWidth, phHeight, virWidth, virHeight);
+        // framebf_init(phWidth, phHeight, virWidth, virHeight);
         while (countFrame < 5)
         {
             for (int j = 0; j < 240; j++)
@@ -178,7 +203,7 @@ void main()
     {
         char str[10];
         int count = 0, countY = 0, flag = 0;
-        framebf_init(pWidth, pHeight, vWidth, vHeight);
+        // framebf_init(pWidth, pHeight, vWidth, vHeight);
         for (int j = 0; j < 1206; j++)
         {
             for (int i = 0; i < 1000; i++)
@@ -871,7 +896,7 @@ void main()
             // draw_backGround();
             // draw_pixelBall();
             // draw_blueTile();
-            //Note: greenTile turn to blue
+            // Note: greenTile turn to blue
             // draw_greenTile();
             // draw_yellowTile();
             // draw_redTile();
