@@ -5,6 +5,7 @@
 #include "image.h"
 #include "video.h"
 #include "largeImage.h"
+#include "game.h"
 
 void main()
 {
@@ -47,6 +48,88 @@ void main()
             for (int i = 0; i < 284; i++)
             {
                 drawPixelARGB32(i, j, image[j * 284 + i]);
+            }
+        }
+    }
+
+    void draw_game(){
+        // framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
+        draw_backGround();
+        draw_pixelBall();
+        draw_blueTile();
+        draw_greenTile();
+        draw_yellowTile();
+        draw_redTile()
+    }
+
+    void draw_backGround()
+    {
+        framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
+        for (int j = 0; j < 177; j++)
+        {
+            for (int i = 0; i < 284; i++)
+            {
+                drawPixelARGB32(i, j, background[j * 284 + i]);
+            }
+        }
+    }
+
+    void draw_pixelBall()
+    {
+        framebf_init(pixelBallPhysicalWidth, pixelBallPhysicalHeight, pixelBallVirtualWidth, pixelBallVirtualHeight);
+        for (int j = 0; j < 50; j++)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                drawPixelARGB32(i, j, pixelball[j * 50 + i]);
+            }
+        }
+    }
+
+    void draw_greenTile()
+    {
+        framebf_init(greenTilePhysicalWidth, greenTilePhysicalHeight, greenTileVirtualWidth, greenTileVirtualHeight);
+        for (int j = 0; j < 29; j++)
+        {
+            for (int i = 0; i < 123; i++)
+            {
+                drawPixelARGB32(i, j, greenTile[j * 123 + i]);
+            }
+        }
+    }
+
+    void draw_blueTile()
+    {
+        framebf_init(blueTilePhysicalWidth, blueTilePhysicalHeight, blueTileVirtualWidth, blueTileVirtualHeight);
+        for (int j = 0; j < 29; j++)
+        {
+            for (int i = 0; i < 123; i++)
+            {
+                drawPixelARGB32(i, j, bluetile[j * 123 + i]);
+            }
+        }
+    }
+
+    void draw_yellowTile()
+    {
+        framebf_init(yellowTilePhysicalWidth, yellowTilePhysicalHeight, yellowTitleVirtualWidth, yellowTileVirtualHeight);
+        for (int j = 0; j < 29; j++)
+        {
+            for (int i = 0; i < 123; i++)
+            {
+                drawPixelARGB32(i, j, yellowtile[j * 123 + i]);
+            }
+        }
+    }
+
+    void draw_redTile()
+    {
+        framebf_init(redTilePhysicalWidth, redTilePhysicalHeight, redTileVirtualWidth, redTileVirtualHeight);
+        for (int j = 0; j < 29; j++)
+        {
+            for (int i = 0; i < 123; i++)
+            {
+                drawPixelARGB32(i, j, redtile[j * 123 + i]);
             }
         }
     }
@@ -782,7 +865,17 @@ void main()
         {
             drawLargeImage();
         }
-
+        else if (strCompare(array, "game") == 0)
+        {
+            draw_game();
+            // draw_backGround();
+            // draw_pixelBall();
+            // draw_blueTile();
+            //Note: greenTile turn to blue
+            // draw_greenTile();
+            // draw_yellowTile();
+            // draw_redTile();
+        }
         else
         {
             // Diplay error message to users.
