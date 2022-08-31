@@ -158,7 +158,7 @@ void main()
                 }
             }
         }
-        draw_pixelBall(500,500);
+        draw_pixelBall(500, 500);
     }
 
     void draw_video()
@@ -602,7 +602,7 @@ void main()
         // Condition to set physical width and height screen.
         if (positionPhysical == 1)
         {
-            mbox[0] = 35 * 4;            // Length of message in bytes
+            mbox[0] = 8 * 4;             // Length of message in bytes
             mbox[1] = MBOX_REQUEST;      // Message Request Code (this is a request message)
             mbox[2] = MBOX_TAG_SETPHYWH; // TAG Identifier: Set physical width-height
             mbox[3] = 8;                 // Value size in bytes
@@ -610,12 +610,22 @@ void main()
             mbox[5] = phWidth;           // New width for physical screen
             mbox[6] = phHeight;          // New height for physical screen
             mbox[7] = MBOX_TAG_LAST;
-            mbox_call(ADDR(mbox), MBOX_CH_PROP);
+
+            if (mbox_call(ADDR(mbox), MBOX_CH_PROP))
+            {
+                for (int j = 0; j < 1206; j++)
+                {
+                    for (int i = 0; i < 1000; i++)
+                    {
+                        drawPixelARGB32(i, j, largImage[j * 1000 + i]);
+                    }
+                }
+            }
         }
         // Condition to set virtual width and height screeen.
         else if (positionVirtual == 1)
         {
-            mbox[0] = 35 * 4;             // Length of message in bytes
+            mbox[0] = 8 * 4;              // Length of message in bytes
             mbox[1] = MBOX_REQUEST;       // Message Request Code (this is a request message)
             mbox[2] = MBOX_TAG_SETVIRTWH; // TAG Identifier: set virtual width-height
             mbox[3] = 8;                  // Value size in bytes
@@ -623,7 +633,17 @@ void main()
             mbox[5] = virWidth;           // New width for virtual screen
             mbox[6] = virHeight;          /// New height for virtual screen
             mbox[7] = MBOX_TAG_LAST;
-            mbox_call(ADDR(mbox), MBOX_CH_PROP);
+
+            if (mbox_call(ADDR(mbox), MBOX_CH_PROP))
+            {
+                for (int j = 0; j < 1206; j++)
+                {
+                    for (int i = 0; i < 1000; i++)
+                    {
+                        drawPixelARGB32(i, j, largImage[j * 1000 + i]);
+                    }
+                }
+            }
         }
         // Display error message when value empty.
         else
