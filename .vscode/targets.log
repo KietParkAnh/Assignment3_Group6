@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Tue Aug 30 16:35:34 2022
+# Make data base, printed on Wed Aug 31 08:11:54 2022
 
 # Variables
 
@@ -43,13 +43,13 @@ CFILES = $(wildcard $(SRC_DIR)/*.c)
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-INFOPATH = /opt/homebrew/share/info:
+INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/hl/pr335lpj58g7j_cbhgv48rn00000gn/T/vscode-ipc-28282022-ebc6-4baf-8ac9-779080d6a6f0.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/hl/pr335lpj58g7j_cbhgv48rn00000gn/T/vscode-ipc-109f1678-ff7d-4b73-b0cd-6c36ae0459af.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/sbin
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -59,7 +59,7 @@ LDFLAGS = -nostdlib -nostartfiles
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.EogI8ouWuY/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yEl87dZEHR/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -73,7 +73,7 @@ GCCFLAGS = -Wall -O2 -ffreestanding -nostdinc -nostdlib
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-MANPATH = /opt/homebrew/share/man::
+MANPATH = /opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -98,6 +98,8 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# environment
+LOCAL_GIT_DIRECTORY = /Applications/GitHub Desktop.app/Contents/Resources/app/git
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -153,11 +155,12 @@ OFILES = $(CFILES:$(SRC_DIR)/%.c=$(OBJECT_DIR)/%.o)
 # environment
 MAKELEVEL := 0
 # environment
+ 
 LANG = C
 # environment
-VSCODE_PID = 8450
+VSCODE_PID = 1231
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=2/105=2%
+# Load=73/1024=7%, Rehash=0, Collisions=2/106=2%
 
 # Pattern-specific Variable Values
 
@@ -165,9 +168,9 @@ VSCODE_PID = 8450
 
 # Directories
 
-# . (device 16777230, inode 6415319): 11 files, no impossibilities.
-# ./src (device 16777230, inode 6415490): 19 files, no impossibilities.
-# src (device 16777230, inode 6415490): 19 files, no impossibilities.
+# . (device 16777231, inode 6415319): 11 files, no impossibilities.
+# ./src (device 16777231, inode 6415490): 19 files, no impossibilities.
+# src (device 16777231, inode 6415490): 19 files, no impossibilities.
 
 # 49 files, no impossibilities in 3 directories.
 
@@ -233,7 +236,6 @@ src/printf.c:
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-04 13:30:03
- 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -268,7 +270,7 @@ object/mbox.o: src/mbox.c
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-30 16:16:37
+#  Last modified 2022-08-30 16:43:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -340,7 +342,7 @@ src/boot.S:
 
 kernel8.img: object/boot.o object/framebf.o object/main.o object/mbox.o object/printf.o object/uart.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-30 16:16:37
+#  Last modified 2022-08-30 16:43:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -353,7 +355,7 @@ kernel8.img: object/boot.o object/framebf.o object/main.o object/mbox.o object/p
 object/main.o: src/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-08-30 16:16:37
+#  Last modified 2022-08-30 16:43:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -366,6 +368,7 @@ object/main.o: src/main.c
 src/mbox.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-04 13:34:48
+ 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -384,6 +387,6 @@ src/mbox.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Aug 30 16:35:34 2022
+# Finished Make data base on Wed Aug 31 08:11:54 2022
 
  

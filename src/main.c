@@ -224,7 +224,7 @@ void main()
                 {
                     countY = flag + 100;
                     flag = countY;
-                    framebf_init(pWidth, pHeight, vWidth, vHeight);
+                    // framebf_init(pWidth, pHeight, vWidth, vHeight);
                     for (int j = 0; j < 1206; j++)
                     {
                         countY++;
@@ -242,7 +242,7 @@ void main()
                 {
                     countY = flag - 100;
                     flag = countY;
-                    framebf_init(pWidth, pHeight, vWidth, vHeight);
+                    // framebf_init(pWidth, pHeight, vWidth, vHeight);
                     for (int j = 0; j < 1206; j++)
                     {
                         countY++;
