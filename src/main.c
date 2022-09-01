@@ -6,7 +6,6 @@
 #include "video.h"
 #include "largeImage.h"
 #include "game.h"
-
 void main()
 {
     int count = 0;
