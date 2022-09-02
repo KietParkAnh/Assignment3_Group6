@@ -226,9 +226,9 @@ void main()
             {
                 if (barX > 0)
                 {
-                    for (int j = 823; j < 730; j++)
+                    for (int j = 700; j < 730; j++)
                     {
-                        for (int i = barX; i < barX-100; i++)
+                        for (int i = barX + 123; i > barX - 100; i--)
                         {
                             drawPixelARGB32(i, j, 0x00000000);
                         }
