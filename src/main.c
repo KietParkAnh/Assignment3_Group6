@@ -6,6 +6,7 @@
 #include "video.h"
 #include "largeImage.h"
 #include "game.h"
+#include "timer.h"
 void main()
 {
     int count = 0;
@@ -66,7 +67,7 @@ void main()
 
     void draw_greenTile(int x, int y)
     {
-        // framebf_init(greenTilePhysicalWidth, greenTilePhysicalHeight, greenTileVirtualWidth, greenTileVirtualHeight);
+        //framebf_init(greenTilePhysicalWidth, greenTilePhysicalHeight, greenTileVirtualWidth, greenTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
             y++;
@@ -79,7 +80,7 @@ void main()
 
     void draw_blueTile(int x, int y)
     {
-        // framebf_init(blueTilePhysicalWidth, blueTilePhysicalHeight, blueTileVirtualWidth, blueTileVirtualHeight);
+        //framebf_init(blueTilePhysicalWidth, blueTilePhysicalHeight, blueTileVirtualWidth, blueTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
             y++;
@@ -92,7 +93,7 @@ void main()
 
     void draw_yellowTile(int x, int y)
     {
-        // framebf_init(yellowTilePhysicalWidth, yellowTilePhysicalHeight, yellowTitleVirtualWidth, yellowTileVirtualHeight);
+        //framebf_init(yellowTilePhysicalWidth, yellowTilePhysicalHeight, yellowTitleVirtualWidth, yellowTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
             y++;
@@ -105,7 +106,7 @@ void main()
 
     void draw_redTile(int x, int y)
     {
-        // framebf_init(redTilePhysicalWidth, redTilePhysicalHeight, redTileVirtualWidth, redTileVirtualHeight);
+        //framebf_init(redTilePhysicalWidth, redTilePhysicalHeight, redTileVirtualWidth, redTileVirtualHeight);
         for (int j = 0; j < 29; j++)
         {
             y++;
@@ -118,46 +119,132 @@ void main()
 
     void draw_game()
     {
-        // framebf_init(gamePhysicalWidth, gamePhysicalHeight, gameVirtualWidth, gameVirtualHeight);
-        for (int x = 50; x < 470; x += 173)
+        // for (int x = 50; x < 470; x += 173)
+        // {
+        //     for (int y = 50; y < 254; y += 29)
+        //     {
+        //         if (y == 50)
+        //         {
+        //             draw_yellowTile(x, y);
+        //         }
+        //         else if (y == 79)
+        //         {
+        //             draw_redTile(x, y);
+        //         }
+        //         else if (y == 108)
+        //         {
+        //             draw_blueTile(x, y);
+        //         }
+        //         else if (y == 137)
+        //         {
+        //             draw_greenTile(x, y);
+        //         }
+        //         else if (y == 166)
+        //         {
+        //             draw_yellowTile(x, y);
+        //         }
+        //         else if (y == 195)
+        //         {
+        //             draw_blueTile(x, y);
+        //         }
+        //         else if (y == 224)
+        //         {
+        //             draw_greenTile(x, y);
+        //         }
+        //         else if (y == 253)
+        //         {
+        //             draw_redTile(x, y);
+        //         }
+        //     }
+        // }
+        // draw_pixelBall(500, 500);
+
+        int barX = 500, barFlag = 0, count = 0;
+        char str[10000];
+        draw_blueTile(barX, 700);
+        while (1)
         {
-            for (int y = 50; y < 254; y += 29)
+
+            for (int x = 50; x < 470; x += 173)
             {
-                if (y == 50)
+                for (int y = 50; y < 254; y += 29)
                 {
-                    draw_yellowTile(x, y);
-                }
-                else if (y == 79)
-                {
-                    draw_redTile(x, y);
-                }
-                else if (y == 108)
-                {
-                    draw_blueTile(x, y);
-                }
-                else if (y == 137)
-                {
-                    draw_greenTile(x, y);
-                }
-                else if (y == 166)
-                {
-                    draw_yellowTile(x, y);
-                }
-                else if (y == 195)
-                {
-                    draw_blueTile(x, y);
-                }
-                else if (y == 224)
-                {
-                    draw_greenTile(x, y);
-                }
-                else if (y == 253)
-                {
-                    draw_redTile(x, y);
+                    if (y == 50)
+                    {
+                        draw_yellowTile(x, y);
+                    }
+                    else if (y == 79)
+                    {
+                        draw_redTile(x, y);
+                    }
+                    else if (y == 108)
+                    {
+                        draw_blueTile(x, y);
+                    }
+                    else if (y == 137)
+                    {
+                        draw_greenTile(x, y);
+                    }
+                    else if (y == 166)
+                    {
+                        draw_yellowTile(x, y);
+                    }
+                    else if (y == 195)
+                    {
+                        draw_blueTile(x, y);
+                    }
+                    else if (y == 224)
+                    {
+                        draw_greenTile(x, y);
+                    }
+                    else if (y == 253)
+                    {
+                        draw_redTile(x, y);
+                    }
                 }
             }
+
+            str[count] = uart_getc();
+            if (str[count] == 'd')
+            {
+                if (barX <= 1000)
+                {
+                    for (int j = 700; j < 730; j++)
+                    {
+                        for (int i = barX; i < barX+100; i++)
+                        {
+                            drawPixelARGB32(i, j, 0x00000000);
+                        }
+                    }
+                    
+                    barX += 100;
+                    draw_blueTile(barX, 700);
+                }
+            }
+
+            if (str[count] == 'a')
+            {
+                if (barX > 0)
+                {
+                    for (int j = 823; j < 730; j++)
+                    {
+                        for (int i = barX; i < barX-100; i++)
+                        {
+                            drawPixelARGB32(i, j, 0x00000000);
+                        }
+                    }
+                    barX -= 100;
+                    draw_blueTile(barX, 700);
+                }
+            }
+
+            if (str[count] == 'c')
+            {
+                break;
+            }
+            
+            count++;
         }
-        draw_pixelBall(500, 500);
     }
 
     void draw_video()
@@ -202,7 +289,7 @@ void main()
 
     void drawLargeImage()
     {
-        char str[10];
+        char str[10000];
         int count = 0, countY = 0, flag = 0;
         // framebf_init(pWidth, pHeight, vWidth, vHeight);
         for (int j = 0; j < 1206; j++)
@@ -252,6 +339,12 @@ void main()
                     }
                 }
             }
+
+            if (str[count] == 'c')
+            {
+                break;
+            }
+
             count++;
         }
     }
@@ -914,13 +1007,6 @@ void main()
         else if (strCompare(array, "game") == 0)
         {
             draw_game();
-            // draw_backGround();
-            // draw_pixelBall();
-            // draw_blueTile();
-            // Note: greenTile turn to blue
-            // draw_greenTile();
-            // draw_yellowTile();
-            // draw_redTile();
         }
         else
         {
